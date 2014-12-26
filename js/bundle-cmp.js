@@ -4336,7 +4336,7 @@
                     me.game.end(reason)
                 }, 2e3);
                 this.game.soundManager.play("lose");
-                window.location.href="objc://"+"gameOver:/0"; // by michael
+                // window.location.href="objc://"+"gameOver:/0"; // by michael
             }
         },
         performedBackFlip: function() {
