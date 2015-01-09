@@ -35,10 +35,45 @@
                 -webkit-user-select: none; /* Disable selection/copy in UIWebView */
             }
         </style>
-        <script type="text/javascript">
+<script type="text/javascript">
+        // Weixin
+        function registerHandlerForWeixinShareContent()
+        {
+            var content = { "title": "", "description": "", "icon": "", "link": ""};
+            var json = JSON.stringify(content);
+            return json;
+        }
+        // Weibo
+        function registerHandlerForSinaWeiboContent()
+        {
+            var content = { "description": "", "icon": "", "link": ""};
+            var json = JSON.stringify(content);
+            return json;
+        }
+        // Facebook
+        function registerHandlerForFacebookShareContent()
+        {
+            var content = { "description": "", "icon": "", "link": ""};
+            var json = JSON.stringify(content);
+            return json;
+        }
+        // Twitter
+        function registerHandlerForTwitterShareContent()
+        {
+            var content = { "description": "", "icon": "", "link": ""};
+            var json = JSON.stringify(content);
+            return json;
+        }
+    </script>
+    <script type="text/javascript">
+
     function didLoad() {
-        window.location.href="weiyou://didLoad"  // by decamincow
-    }
+                        if(navigator.userAgent.indexOf("WeGame/0.2.0") !=-1)
+            {
+                window.location.href="weiyou://didLoad/regWeixin/registerHandlerForWeixinShareContent/regSinaWeibo/registerHandlerForSinaWeiboContent/regFacebook/registerHandlerForFacebookShareContent/regTwitter/registerHandlerForTwitterShareContent"  // by decamincow
+            }
+
+          }
 </script>
 	</head>
 	
