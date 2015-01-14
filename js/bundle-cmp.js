@@ -3057,12 +3057,15 @@
     });
 
     function Game() {
+        var temp; //decamincow
         Game.instance = this;
         window.G = this;
         this.curScreen = null;
         this.curOverlay = null;
         this.playedTutorial = !!Util.storage.getItem(P.tutorialKey) || false;
-        this.highscore = parseInt(Util.storage.getItem(P.highscoreKey)) || 0;
+        this.highscore = parseInt(Util.storage.getItem(P.highscoreKey)) || 0; //decamincow
+        window.location.href="weiyou://getData/astroalpaca_hiScore/callbackHandler"; // by decamincow
+ 
         if (location.search.indexOf("newgame") >= 0) {
             this.playedTutorial = false;
             this.highscore = 0
@@ -3230,6 +3233,8 @@
             var score = this.curScreen.score;
             this.previousHighscore = this.highscore;
             this.highscore = Math.max(score, this.highscore);
+            alert("hi:"+this.highscore+".score:"+score);
+            window.location.href="weiyou://putData/astroalpaca_hiScore/" + this.highscore; // by decamincow
             Util.storage.setItem(P.highscoreKey, this.highscore);
             window.gmga("gamedone");
             this.setScreen(new EndScreen(this, this.curScreen.score, reason));
@@ -5078,3 +5083,14 @@
         }
     })
 })();
+function callbackHandler(value) {//decamincow
+        alert("callbackHandlervalue=" + value );
+    
+    if(value == null && !isNaN(value)){
+        temp = 0;
+    }
+    if((value == null && isNaN(value)) || (isNaN(value) && value == "")){
+        temp = "0";
+    }
+    this.highscore = temp;
+}
