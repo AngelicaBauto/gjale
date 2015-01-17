@@ -3233,7 +3233,7 @@
             var score = this.curScreen.score;
             this.previousHighscore = this.highscore;
             this.highscore = Math.max(score, this.highscore);
-            alert("hi:"+this.highscore+".score:"+score);
+            // alert("hi:"+this.highscore+".score:"+score);
             window.location.href="weiyou://putData/astroalpaca_hiScore/" + this.highscore; // by decamincow
             Util.storage.setItem(P.highscoreKey, this.highscore);
             window.gmga("gamedone");
